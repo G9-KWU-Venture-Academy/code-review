@@ -1,0 +1,128 @@
+# 백준 2675
+import java.util.Scanner;
+public class pb2675 {
+ 
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		int T = in.nextInt();
+		for(int i = 0; i < T; i++) {
+	
+			int R = in.nextInt();
+			String S = in.next();
+			
+			for(int j = 0; j < S.length(); j++) {           
+				for(int k = 0; k < R; k++) {
+					System.out.print(S.charAt(j));
+				}
+			}
+            
+			System.out.println();
+		}
+	}
+}
+
+# 백준 1152
+import java.util.Scanner;
+import java.util.StringTokenizer;
+public class pb1152 {
+ 
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+ 
+		String S = in.nextLine();
+		in.close();
+ 
+		StringTokenizer st = new StringTokenizer(S," ");
+		
+		System.out.println(st.countTokens());	
+		
+	}
+}
+
+# 백준 1157
+word = input().upper()
+word_list = list(set(word))
+lst = []
+
+for i in word_list:
+    count = word.count(i)
+    lst.append(count)
+
+if lst.count(max(lst))>= 2:
+    print("?")
+else:
+    print(word_list[lst.index(max(lst))])
+
+# 백준 1316
+n = int(input())
+ans = n
+
+for _ in range(n):
+  word = input()
+
+  for i in range(len(word)-1):
+
+    if word[i] == word[i+1]:
+      pass
+  
+    elif word[i] in word[i+1:]:
+      ans -= 1
+      break
+
+print(ans)
+
+# 백준 2444
+n = int(input())
+for i in range(1,n+1):
+    print(" "*(n-i) + "*"*(2*i-1))
+for i in range(n-1, 0, -1):
+    print(" "*(n-i) + "*"*(2*i-1))
+
+# 백준 2941
+a = input()
+croatia_a = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+
+for i in croatia_a:
+    a = a.replace(i, "*")
+
+print(len(a))
+
+# 백준 3003
+chess = [1, 1, 2, 2, 2, 8]
+
+myInput = list(map(int, input().split()))
+
+for i in range(len(chess)):
+  print(chess[i] - myInput[i], end = ' ')
+  
+# 백준 10988
+palindrome = input()
+
+if palindrome[::1] == palindrome[::-1]:
+    print(1)
+else:
+    print(0)
+    
+# 백준 25083
+print('         ,r\'\"7')
+print('r`-_   ,\'  ,/')
+print(' \\. \". L_r\'')
+print('   `~\\/')
+print('      |')
+print('      |')
+
+# 백준 25206
+rating = ['A+', 'A0', 'B+', 'B0', 'C+', 'C0', 'D+', 'D0', 'F']
+grade = [4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0]
+
+total = 0	
+result = 0	
+for _ in range(20) :
+    s, p, g = input().split()
+    p = float(p)
+    if g != 'P' :	
+        total += p
+        result += p * grade[rating.index(g)]
+
+print('%.6f' % (result / total))
