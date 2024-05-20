@@ -1,0 +1,100 @@
+# 2675번
+testcase = int(input())
+
+for i in range(testcase):
+    printnum, text = input().split()
+
+    for char in text:
+        print(char * int(printnum), end="")
+    print()
+
+# 1152번
+text = input()
+words = text.split()
+word_count = len(words)
+print(word_count)
+
+# 1157번
+word = input().upper()
+word_set = list(set(word))
+
+max = 0
+val = ''
+for w in word_set:
+    cnt = word.count(w)
+    if max < cnt:
+        max = cnt
+        val = w
+    elif max == cnt:
+        val = '?'
+
+print(val)
+
+# 1316번
+testcase = int(input())
+group_number = testcase
+for i in range(testcase):
+    word = input()
+
+    for j in range(len(word-1)):
+        if word[j] != word[j+1] and word[j] in word[j+1]:
+            group_number -= 1
+            break
+print(group_number)
+
+# 25083번
+print('         ,r\'\"7')
+print('r`-_   ,\'  ,/')
+print(' \. \". L_r\'')
+print('   `~\/')
+print('      |')
+print('      |')
+
+# 3003번
+chess = [1, 1, 2, 2, 2, 8]
+cur = list(map(int, input().split()))
+for i in range(6):
+    print(chess[i]-cur[i], end=" ")
+
+# 2444번
+number = int(input())
+
+for i in range(number):
+    print((" " * (number-i-1)) + ("*" * (2*i+1)))
+    
+for i in range(number-1):
+    print(" " * (i + 1) + "*" * (2 * (number - i - 1) - 1))
+
+
+# 10988번
+word =  list(input())
+count = 0
+for i in range(((len(word)//2)+1)):
+    if word[i] != word[-1-i]:
+        count +=1
+        
+if count==0:
+    print(1)
+else:
+    print(0)
+
+
+# 2941번
+croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+word = input()
+
+for i in croatia :
+    word = word.replace(i, '*')  # input 변수와 동일한 이름의 변수
+print(len(word))
+
+# 25206번
+Grade = {'A+':4.5, 'A0':4.0, 'B+':3.5, 'B0':3.0, 'C+':2.5, 'C0':2.0, 'D+':1.5, 'D0':1.0, 'F':0.0}
+Credit_Sum = 0
+Grade_Sum = 0
+for i in range(20):
+    Subject = list(map(str, input().split()))
+    if Subject[2] != 'P':
+        Credit_Sum += float(Subject[1])
+        Grade_Sum += (float(Subject[1]) * Grade[Subject[2]])
+
+print(round(Grade_Sum/Credit_Sum, 6))
